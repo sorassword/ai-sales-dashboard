@@ -11,6 +11,8 @@ A management & staff dashboard for a multi-store fashion retailer that puts bot 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind%20v4-06B6D4?logo=tailwindcss&logoColor=white)
 
+<img src="docs/dash-overview.png" alt="Dashboard overview: KPIs, revenue trend and bot-usage vs. revenue correlation" width="900">
+
 </div>
 
 > **Note:** This is an anonymised version of a client prototype built in a consulting project. All company names were removed and **all data is synthetic** (deterministic mock generator, seed 2026).
@@ -22,6 +24,12 @@ A management & staff dashboard for a multi-store fashion retailer that puts bot 
 - **Typed API contract** – Pydantic schemas in the backend mirrored 1:1 as TypeScript types in the frontend
 - **Zero chart dependencies** – all charts are hand-rolled SVG components
 - **Swap-in real data** – the mock generator is the only data source; replace it with a DB/CSV loader that returns the same shapes and nothing else changes
+
+## Screenshots
+
+| Employees | Gamification |
+|---|---|
+| <img src="docs/dash-employees.png" alt="Employee table" width="440"> | <img src="docs/dash-gamification.png" alt="Leaderboard and badges" width="440"> |
 
 ## Architecture
 

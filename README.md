@@ -1,9 +1,9 @@
 <div align="center">
 
-# 📈 AI Sales Assistant – Analytics Dashboard
+# AI Sales Assistant Analytics Dashboard
 
 **Does an AI sales assistant actually make store staff sell more?**
-A management & staff dashboard for a multi-store fashion retailer that puts bot usage, learning scores and revenue side by side – and makes the correlation visible.
+A management & staff dashboard for a multi-store fashion retailer that puts bot usage, learning scores and revenue side by side and makes the correlation visible.
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
@@ -19,11 +19,11 @@ A management & staff dashboard for a multi-store fashion retailer that puts bot 
 
 ## Highlights
 
-- **Bot usage ↔ revenue correlation** – scatter plot with Pearson *r* ≈ 0.73, ROI band and revenue-per-bot-hour KPI
-- **Five views** – Overview, Employees, Stores, Gamification (leaderboard, badges, quizzes), Seasonal Readiness score before a collection launch
-- **Typed API contract** – Pydantic schemas in the backend mirrored 1:1 as TypeScript types in the frontend
-- **Zero chart dependencies** – all charts are hand-rolled SVG components
-- **Swap-in real data** – the mock generator is the only data source; replace it with a DB/CSV loader that returns the same shapes and nothing else changes
+- **Bot usage vs. revenue:** scatter plot with Pearson *r* ≈ 0.73, ROI band and revenue-per-bot-hour KPI
+- **Five views:** Overview, Employees, Stores, Gamification (leaderboard, badges, quizzes), Seasonal Readiness score before a collection launch
+- **Typed API contract:** Pydantic schemas in the backend mirrored 1:1 as TypeScript types in the frontend
+- **No chart library:** all charts are hand-rolled SVG components
+- **Easy to connect real data:** the mock generator is the only data source; replace it with a DB/CSV loader that returns the same shapes and nothing else changes
 
 ## Screenshots
 
@@ -35,7 +35,7 @@ A management & staff dashboard for a multi-store fashion retailer that puts bot 
 
 ```text
 ai-sales-dashboard/
-├── backend/            FastAPI – serves all data as a JSON API
+├── backend/            FastAPI, serves all data as a JSON API
 │   └── app/
 │       ├── models/     Pydantic schemas = the API contract
 │       ├── data/       deterministic mock-data generator
@@ -49,7 +49,7 @@ ai-sales-dashboard/
         └── routes/           overview, employees, stores, gamification, readiness
 ```
 
-**Why FastAPI instead of a pure SvelteKit app?** The next step is the chatbot itself – an LLM agent with function calling, speech-to-text and a video-to-Markdown transcription pipeline. That is Python-native, so the bot can later be added as just another router module under `app/api/` without switching stacks.
+**Why FastAPI instead of a pure SvelteKit app?** The next step is the chatbot itself: an LLM agent with function calling, speech-to-text and a video-to-Markdown transcription pipeline. That is Python-native, so the bot can later be added as just another router module under `app/api/` without switching stacks.
 
 ## Getting started
 
@@ -80,7 +80,7 @@ Open http://localhost:5173. The frontend reads the backend URL from `PUBLIC_API_
 ## Extending it
 
 - **The API contract is the source of truth.** `backend/app/models/schemas.py` and `frontend/src/lib/types.ts` must stay in sync.
-- **New KPI:** add an endpoint in `app/api/` → a method in `frontend/src/lib/api/client.ts` → load it in the page's `+page.ts` → render it in `+page.svelte`.
+- **New KPI:** add an endpoint in `app/api/`, a method in `frontend/src/lib/api/client.ts`, load it in the page's `+page.ts` and render it in `+page.svelte`.
 - **Re-skin:** all design tokens (colours, fonts) live in `frontend/src/app.css` (`@theme`).
 
 More detail: [CODEBASE_OVERVIEW.md](CODEBASE_OVERVIEW.md) (German).

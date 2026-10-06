@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Design tokens — editorial / premium-fashion aesthetic.
+ * Change these to re-skin the whole dashboard (e.g. to a client brand).
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces */
+  --color-paper: #f5f2ec;        /* warm off-white page background */
+  --color-card: #fffdf9;         /* slightly lifted card surface   */
+  --color-line: #e4ddd0;         /* hairline borders               */
+
+  /* Ink (text) — reuses the navy as the primary ink */
+  --color-ink: #1b1f3b;
+  --color-ink-soft: #5b5f72;
+  --color-ink-mute: #9a9aa6;
+
+  /* Accents */
+  --color-brass: #a87c3d;        /* refined warm accent            */
+  --color-brass-soft: #d8c39c;
+  --color-signal: #d22d29;       /* signal red — alerts / highlights  */
+  --color-positive: #2e7d57;
+  --color-negative: #c0463b;
+
+  /* Typography */
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii */
+  --radius-card: 14px;
+}
+
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures everywhere numbers matter */
+.tnum {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Subtle paper grain via layered radial gradients */
+.bg-grain {
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(168, 124, 61, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(27, 31, 59, 0.04), transparent 45%);
+}
+
+::selection {
+  background: var(--color-brass-soft);
+  color: var(--color-ink);
+}
+
+/* Staggered page-load reveal */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
